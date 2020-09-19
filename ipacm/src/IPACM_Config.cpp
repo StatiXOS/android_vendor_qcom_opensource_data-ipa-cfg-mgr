@@ -915,8 +915,10 @@ bool IPACM_Config::isEthBridgingSupported()
 #ifdef IPA_HW_v4_7
 	return ((hw_type >= IPA_HW_v4_5) &&
 		(hw_type != IPA_HW_v4_7));
-#else
+#elif defined(IPA_HW_v4_5)
 	return (hw_type >= IPA_HW_v4_5);
+#else
+	return false;
 #endif
 }
 
